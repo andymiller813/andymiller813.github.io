@@ -63,8 +63,5 @@ The password and email keys are implemented the same was as before, but the name
 }
 {% endhighlight %}
 
-The users key contains one JSON object as its value, and this JSON object contains two JSON arrays (lists).  One of the arrays has the key “free-users” and the other “premium-users”.  In conclusion, there are many ways to structure a JSON object, but they need to follow this structure in order for a client or server to properly parse them once they get across the internet network.    
-
-##A Non-Trivial Example
-//TODO
+The users key contains one JSON object as its value, and this JSON object contains two JSON arrays (lists).  One of the arrays has the key “free-users” and the other “premium-users”.  In conclusion, there are many ways to structure a JSON object, but they need to follow this structure in order for a client or server to properly parse them once they get across the internet network. 
 
