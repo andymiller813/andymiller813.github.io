@@ -2,7 +2,7 @@
 title: Andy The Android Guy
 email: andymiller813@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  This blog is being designed to help anyone understand a wide range of computer programming concepts and terms at a high level, as well as to inspire and guide novice programmers with my own personal projects. 
+  This blog is being designed to help anyone and everyone understand a wide range of computer programming concepts and terms at a high level, as well as to inspire and guide novice programmers with my own personal projects. 
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://andymiller813.github.io" # the base hostname & protocol for your site
 twitter_username: andymiller813
