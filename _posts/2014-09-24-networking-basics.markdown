@@ -54,7 +54,7 @@ The password and email keys are implemented the same was as before, but the name
 			{ 'name' : 'john' },
 			{ 'name' : 'joe' }
 		],
-		“premium-users” : [
+		'premium-users' : [
 			{ 'name' : 'billie' }, 
 			{ 'name' : 'smitty' }
 		]
