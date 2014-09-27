@@ -87,19 +87,19 @@ All of the client applications (There are over 1.3 billion monthly active users 
 	  		'num_comments' : 94,
 	  		'first_2_comments' : {	
 		  		'comments' : [
-			    	{
-			      		'name' : 'becky',
-			      		'comment-text' : 'the NSA is watching you'
-			      		'comment-time' : '2h ago'
-			      		'num-likes' : 7
-			      		...
-			    	},
-			    	{
+					{
+						'name' : 'becky',
+						'comment-text' : 'the NSA is watching you'
+						'comment-time' : '2h ago'
+						'num-likes' : 7
+						...
+					},
+					{
 						...
 						Another Comment
 						...
-			    	}
-		  		]
+					}
+				]
 			}
 			...
 		},
