@@ -76,7 +76,7 @@ All of the client applications (There are over 1.3 billion monthly active users 
   	'posts' : [
 		{ 
 	  		'ID' : 'Some Unique ID',
-      		'name' : 'Name of the person who wrote this status',
+	  		'name' : 'Name of the person who wrote this status',
 	  		'time' : 'Time this status was written',
 	  		'profile_pic' : 'URL of the profile thumbnail image',
 	  		'num_likes' : 27,
@@ -84,10 +84,10 @@ All of the client applications (There are over 1.3 billion monthly active users 
 	  		'first_2_comments' : {	
 		  		'comments' : [
 			    	{
-			      		'name' : 'name of person who posted comment',
-				  		'comment-text' : 'the NSA is watching you'
-				  		'comment-time' : 'time the comment was posted'
-				  		'num-likes' : 'number of likes on the comment'
+			      		'name' : 'becky',
+			      		'comment-text' : 'the NSA is watching you'
+			      		'comment-time' : '2h ago'
+			      		'num-likes' : 7
 				  		...
 			    	},
 			    	...
