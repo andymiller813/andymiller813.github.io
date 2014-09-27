@@ -65,7 +65,7 @@ The password and email keys are implemented the same was as before, but the name
 
 The users key contains one JSON object as its value, and this JSON object contains two JSON arrays (lists).  One of the arrays has the key “free-users” and the other “premium-users”.  In conclusion, there are many ways to structure a JSON object, but they need to follow this structure in order for a client or server to properly parse them once they get across the internet network. 
 
-## Application Programming Interface - A non-trivial example
+## Application Programming Interface: A non-trivial example
 
 So, what I've described so far in this article is an itsy bitsy teeny weeny little part of what is Facebook's internal [behemoth] web **API**, or Application Programming Interface.  We went over  Facebook's login page, but think about some of the other components to the website: There's a sign-up page to register a new account, there's the home feed, the profile feed, profile image, like buttons, comments, news articles, settings/preferences page, and the list goes on and on and on.  Facebook has all of this data stored in a data center somewhere like this one in Prineville, Oregon: 
 
