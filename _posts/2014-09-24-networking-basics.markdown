@@ -27,7 +27,7 @@ JSON stands for JavaScript Object Notation, and can essentially be thought of as
 }
 {% endhighlight %}
 
-This gets created immediately after you hit the submit button, and then gets attached to the HTTP request.  The HTTP request is then encoded into binary, and then sent off to its destination IP address to be dealt with (I will be doing another post on binary, hexadecimal, and ASCII soon).  This request was probably POSTed to a URL that looks something like www.facebook.com/login, which is simply a folder on facebook’s servers called “login” that contains the code to deal with this exact request.  Specifically, it contains code with the correct logic that “parses” this JSON and checks the entry in a database to make sure it’s a match.  
+This gets created immediately after you hit the submit button, and then gets attached to the HTTP request.  The HTTP request is then encoded into binary, and then sent off to its destination IP address to be dealt with (I will be doing another post on binary, hexadecimal, and ASCII soon).  This request was probably POSTed to a URL that looks something like www.facebook.com/login, which is simply a folder on facebook’s servers called “login” that contains the code to deal with this exact request.  Specifically, it contains code with the correct logic that “parses” this JSON and checks the entry in a database to make sure it’s a match.  An alternative to JSON is XML which has a syntax much more similar to HTML.  
 
 ##JSON Parsing
 
@@ -64,4 +64,53 @@ The password and email keys are implemented the same was as before, but the name
 {% endhighlight %}
 
 The users key contains one JSON object as its value, and this JSON object contains two JSON arrays (lists).  One of the arrays has the key “free-users” and the other “premium-users”.  In conclusion, there are many ways to structure a JSON object, but they need to follow this structure in order for a client or server to properly parse them once they get across the internet network. 
+
+## Application Programming Interface - A non-trivial example
+
+So, what I've described so far in this article is an itsy bitsy teeny weeny little part of what is Facebook's internal [behemoth] web **API**, or Application Programming Interface.  We went over  Facebook's login page, but think about some of the other components to the website: There's a sign-up page to register a new account, there's the home feed, the profile feed, profile image, like buttons, comments, news articles, settings/preferences page, and the list goes on and on and on.  Facebook has all of this data stored in a data center somewhere like this one in Prineville, Oregon: ![assets/prineville.jpg]{Prineville, Oregon} 
+
+All of the client applications (There are over 1.3 billion monthly active users as of this writing) are, for the most part, simply GETting and POSTing data to and from the servers.  Recall Client-Server architecture.  Once a user is authenticated on the login page, a GET HTTP request is spawned to GET a populated feed of his/her friends' statuses and images.  This feed component makes up an additional part of Facebook's API and is probably located at some location such as www.facebook.com/feed, which again is just a directory called "feed" within all of facebook's servers that contains logic to deal with these HTTP GET requests.  The logic, in this case, is quite complex.  Facebook needs to dig through, or query, its database for the most recent, and most relevant posts from your friends that it wants to show you, and then return them in order to be displayed.  Here's what some returned JSON might look like:
+
+{% highlight javascript %}
+{
+	'posts' : [
+		{ 
+			'ID' : 'Some Unique ID',
+			'name' : 'Name of the person who wrote this status',
+			'time' : 'Time this status was written',
+			'profile_pic' : 'URL of the profile thumbnail image',
+			'num_likes' : 27,
+			'num_comments' : 94,
+			'first_2_comments' : 	
+				{	
+					'comments' : [
+						{
+							'name' : 'name of person who posted comment',
+							'comment-text' : 'the NSA is watching you'
+							'comment-time' : 'time the comment was posted'
+							'num-likes' : 'number of likes on the comment'
+							...
+						}
+					]
+				}
+			...
+		},
+		{
+			...
+			Another Post
+			...
+		}
+	]
+}
+{% endhighlight %}
+
+A few things to note here: notice how the profile picture itself wasn't sent back, but rather a URL for the profile picture.  This is because when you are GETting your feed, you are loading dozens of these posts at once, and images are relatively large file sizes.  If you were to load all of this feed data as well as 20-30 images all in ONE request, you would be waiting for websites to load for a very long time.  Instead, if 20 of these posts are loaded, we now also have 20 profile pictures still to load.  So a new HTTP request from the client is spawned for each one to GET all of the images one by one.  This is why you sometimes notice the images loading on websites _after_ some of the text has shown up.  This request returned the number of likes, but what if we want to see who actually liked it?  When that 27 likes button is pressed, and we want to see the names of everyone who liked the post, the user doesn't want to have to wait several more seconds for this data to load, they want it to already be there!  As soon as this data comes back, another HTTP request might be created to pre-fetch (load them before they are actually displayed) the names of all of the users that liked this post for a much cleaner user experience.  Also, keep in mind there is still loads of other data to be fetched on the facebook home screen alone!!  While the feed is being loaded, your friends list is also being loaded, your own profile picture, your inbox, parts of your profile that are being displayed, etc.  There are many many ways to optimize all of these different requests that are going on including concurrency - these requests can be happening at roughly the same time - as well as caching locally.  These are all topics for other posts in the future.
+
+####**Glossary: Network requests and many other types of computing can be done asynchronously, or at the same time. You might hear this referred to as "in parallel", or "concurrently" **
+
+#Thanks!!!
+
+If you've made it this far, thank you so much for reading.  This is my first blog post on this site and I hope you come back for more in the future.  Getting a high level understanding of programming before diving into it can save you a **TON** of time as it allows you to learn things much more quickly.  Happy coding!
+
+-Andy
 
