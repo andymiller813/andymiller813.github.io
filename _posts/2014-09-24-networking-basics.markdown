@@ -67,7 +67,11 @@ The users key contains one JSON object as its value, and this JSON object contai
 
 ## Application Programming Interface - A non-trivial example
 
-So, what I've described so far in this article is an itsy bitsy teeny weeny little part of what is Facebook's internal [behemoth] web **API**, or Application Programming Interface.  We went over  Facebook's login page, but think about some of the other components to the website: There's a sign-up page to register a new account, there's the home feed, the profile feed, profile image, like buttons, comments, news articles, settings/preferences page, and the list goes on and on and on.  Facebook has all of this data stored in a data center somewhere like this one in Prineville, Oregon: ![Data Center in Prineville, OR](/assets/prineville.jpg)
+So, what I've described so far in this article is an itsy bitsy teeny weeny little part of what is Facebook's internal [behemoth] web **API**, or Application Programming Interface.  We went over  Facebook's login page, but think about some of the other components to the website: There's a sign-up page to register a new account, there's the home feed, the profile feed, profile image, like buttons, comments, news articles, settings/preferences page, and the list goes on and on and on.  Facebook has all of this data stored in a data center somewhere like this one in Prineville, Oregon: 
+
+
+![Data Center in Prineville, OR](/assets/prineville.jpg)
+
 
 All of the client applications (There are over 1.3 billion monthly active users as of this writing) are, for the most part, simply GETting and POSTing data to and from the servers.  Recall Client-Server architecture.  Once a user is authenticated on the login page, a GET HTTP request is spawned to GET a populated feed of his/her friends' statuses and images.  This feed component makes up an additional part of Facebook's API and is probably located at some location such as www.facebook.com/feed, which again is just a directory called "feed" within all of facebook's servers that contains logic to deal with these HTTP GET requests.  The logic, in this case, is quite complex.  Facebook needs to dig through, or query, its database for the most recent, and most relevant posts from your friends that it wants to show you, and then return them in order to be displayed.  Here's what some returned JSON might look like:
 
@@ -88,19 +92,21 @@ All of the client applications (There are over 1.3 billion monthly active users 
 			      		'comment-text' : 'the NSA is watching you'
 			      		'comment-time' : '2h ago'
 			      		'num-likes' : 7
-				  		...
+			      		...
 			    	},
-			    	...
-			    	Another Comment
-			    	...
+			    	{
+						...
+						Another Comment
+						...
+			    	}
 		  		]
 			}
 			...
 		},
 		{
-	  		...
-	  		Another Post
-	  		...
+			...
+			Another Post
+			...
 		}
   	]
 }
@@ -109,6 +115,9 @@ All of the client applications (There are over 1.3 billion monthly active users 
 A few things to note here: notice how the profile picture itself wasn't sent back, but rather a URL for the profile picture.  This is because when you are GETting your feed, you are loading dozens of these posts at once, and images are relatively large file sizes.  If you were to load all of this feed data as well as 20-30 images all in ONE request, you would be waiting for websites to load for a very long time.  Instead, if 20 of these posts are loaded, we now also have 20 profile pictures still to load.  So a new HTTP request from the client is spawned for each one to GET all of the images one by one.  This is why you sometimes notice the images loading on websites _after_ some of the text has shown up.  This request returned the number of likes, but what if we want to see who actually liked it?  When that 27 likes button is pressed, and we want to see the names of everyone who liked the post, the user doesn't want to have to wait several more seconds for this data to load, they want it to already be there!  As soon as this data comes back, another HTTP request might be created to pre-fetch (load them before they are actually displayed) the names of all of the users that liked this post for a much cleaner user experience.  Also, keep in mind there is still loads of other data to be fetched on the facebook home screen alone!!  While the feed is being loaded, your friends list is also being loaded, your own profile picture, your inbox, parts of your profile that are being displayed, etc.  There are many many ways to optimize all of these different requests that are going on including concurrency - these requests can be happening at roughly the same time - as well as caching locally.  These are all topics for other posts in the future.
 
 ####**Glossary: Network requests and many other types of computing can be done asynchronously, or at the same time. You might hear this referred to as "in parallel", or "concurrently".**
+
+**Key takeaway: the amount of data being transferred over the internet is utterly terrifying**
+
 
 ##Thanks!!!
 
