@@ -2,7 +2,7 @@
 layout: post
 title:  "Networking Basics"
 date:   2014-09-24 12:47:00
-comments: true
+comments: false
 categories: networking
 ---
 ##Client-Server Architecture
