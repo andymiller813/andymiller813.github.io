@@ -67,40 +67,40 @@ The users key contains one JSON object as its value, and this JSON object contai
 
 ## Application Programming Interface - A non-trivial example
 
-So, what I've described so far in this article is an itsy bitsy teeny weeny little part of what is Facebook's internal [behemoth] web **API**, or Application Programming Interface.  We went over  Facebook's login page, but think about some of the other components to the website: There's a sign-up page to register a new account, there's the home feed, the profile feed, profile image, like buttons, comments, news articles, settings/preferences page, and the list goes on and on and on.  Facebook has all of this data stored in a data center somewhere like this one in Prineville, Oregon: ![assets/prineville.jpg]{Prineville, Oregon} 
+So, what I've described so far in this article is an itsy bitsy teeny weeny little part of what is Facebook's internal [behemoth] web **API**, or Application Programming Interface.  We went over  Facebook's login page, but think about some of the other components to the website: There's a sign-up page to register a new account, there's the home feed, the profile feed, profile image, like buttons, comments, news articles, settings/preferences page, and the list goes on and on and on.  Facebook has all of this data stored in a data center somewhere like this one in Prineville, Oregon: ![Data Center in Prineville, OR](/assets/prineville.jpg)
 
 All of the client applications (There are over 1.3 billion monthly active users as of this writing) are, for the most part, simply GETting and POSTing data to and from the servers.  Recall Client-Server architecture.  Once a user is authenticated on the login page, a GET HTTP request is spawned to GET a populated feed of his/her friends' statuses and images.  This feed component makes up an additional part of Facebook's API and is probably located at some location such as www.facebook.com/feed, which again is just a directory called "feed" within all of facebook's servers that contains logic to deal with these HTTP GET requests.  The logic, in this case, is quite complex.  Facebook needs to dig through, or query, its database for the most recent, and most relevant posts from your friends that it wants to show you, and then return them in order to be displayed.  Here's what some returned JSON might look like:
 
 {% highlight javascript %}
 {
-	'posts' : [
-		{ 
-			'ID' : 'Some Unique ID',
-			'name' : 'Name of the person who wrote this status',
-			'time' : 'Time this status was written',
-			'profile_pic' : 'URL of the profile thumbnail image',
-			'num_likes' : 27,
-			'num_comments' : 94,
-			'first_2_comments' : 	
-				{	
-					'comments' : [
-						{
-							'name' : 'name of person who posted comment',
-							'comment-text' : 'the NSA is watching you'
-							'comment-time' : 'time the comment was posted'
-							'num-likes' : 'number of likes on the comment'
-							...
-						}
-					]
-				}
-			...
-		},
-		{
-			...
-			Another Post
-			...
+  'posts' : [
+	{ 
+	  'ID' : 'Some Unique ID',
+      'name' : 'Name of the person who wrote this status',
+	  'time' : 'Time this status was written',
+	  'profile_pic' : 'URL of the profile thumbnail image',
+	  'num_likes' : 27,
+	  'num_comments' : 94,
+	  'first_2_comments' : 	
+		{	
+		  'comments' : [
+		    {
+		      'name' : 'name of person who posted comment',
+			  'comment-text' : 'the NSA is watching you'
+			  'comment-time' : 'time the comment was posted'
+			  'num-likes' : 'number of likes on the comment'
+			  ...
+		    }
+		  ]
 		}
-	]
+		...
+	},
+	{
+	  ...
+	  Another Post
+	  ...
+	}
+  ]
 }
 {% endhighlight %}
 
@@ -108,7 +108,7 @@ A few things to note here: notice how the profile picture itself wasn't sent bac
 
 ####**Glossary: Network requests and many other types of computing can be done asynchronously, or at the same time. You might hear this referred to as "in parallel", or "concurrently" **
 
-#Thanks!!!
+##Thanks!!!
 
 If you've made it this far, thank you so much for reading.  This is my first blog post on this site and I hope you come back for more in the future.  Getting a high level understanding of programming before diving into it can save you a **TON** of time as it allows you to learn things much more quickly.  Happy coding!
 
