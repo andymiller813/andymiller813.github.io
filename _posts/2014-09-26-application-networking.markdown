@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Networking Basics"
-date:   2014-09-24 12:47:00
+title:  "Application Networking"
+date:   September 24, 2014 12:47:00
 comments: true
 categories: networking
+dateShort: "2014-09-24"
 ---
 ##Client-Server Architecture
 A friend asked me to teach him about JSON, API calls, HTTP Requests, and general networking basics at a high level, and I've been wanting to start a blog for a long time, so I decided this is a perfect opportunity to get one going.  So, without further ado, let's get started with the client-server architecture.  
