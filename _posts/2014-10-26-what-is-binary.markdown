@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "What is Binary?"
 date:   2014-10-26 12:47:00
 comments: true
@@ -35,7 +35,8 @@ In decimal, what comes next? You continue to count the right-most digit upwards 
 out of characters: 11, 12, 13, 14, ... , 19, and then you follow the same procedure: reset the right-most 
 digit to 0 and add 1 to the next digit over: 20.
 
-If you try to do this in binary, you'll notice you run into a problem: 
+If you try to do this in binary, you'll notice you run into a problem:
+
 ![](/assets/what_is_binary/table_4.png) 
 
 When you add one to the second-to-right-most digit place over, you get two, which is not a valid number in binary. What do we do in decimal when we've run out of numbers in both the first and second (one's and ten's) digits place (the number 99)? 
@@ -49,8 +50,7 @@ Get it?  Hopefully counting in binary makes decent sense by now.  Step through t
 
 ![](/assets/what_is_binary/table_7.png)
 
-##Additional Information
-###Converting between binary and decimal
+##Additional Information: Converting Between Binary and Decimal
 
 Being able to represent any decimal number (and any letter, for that matter) with just two numbers (0 and 1) turns out to be pretty powerful.  We can convert any number to binary, and any letter, which can then be sent across a wire as a signal as something meaningful. We now know how to count in binary, but how about converting something to binary?  It's actually pretty simple once you understand one more thing about how number systems work.  In decimal we know that each digit place has the following names:
 

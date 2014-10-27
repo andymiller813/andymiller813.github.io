@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "Application Networking"
 date:   September 26, 2014 12:47:00
 comments: true
