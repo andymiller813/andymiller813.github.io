@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: post
 title:  "What is Binary?"
 date:   2014-10-26 12:47:00
 comments: true
 categories: networking
+dateShort: "2014-10-26"
 ---
 ##Introduction
 Binary, also known as Base-2, is a number system, just like the Dewey Decimal system that we all learned in 
@@ -42,6 +43,7 @@ If you try to do this in binary, you'll notice you run into a problem:
 When you add one to the second-to-right-most digit place over, you get two, which is not a valid number in binary. What do we do in decimal when we've run out of numbers in both the first and second (one's and ten's) digits place (the number 99)? 
 
 ![](/assets/what_is_binary/table_5.png)
+
 In grade school, we all learned how to "carry the 1" when adding.  The same concept applies to binary.  In decimal, adding 1 to 99 , we reset the right-most (ones) digit to 0, and carry the one to the next digit place.  Since its again a 9, we do the same thing - reset to 0, and add 1 to the next one over, so we get 100.  Here it is in binary:
 
 ![](/assets/what_is_binary/table_6.png)
@@ -57,6 +59,7 @@ Being able to represent any decimal number (and any letter, for that matter) wit
 ![](/assets/what_is_binary/tens.png)
 
 Whereas in binary we have:
+
 ![](/assets/what_is_binary/twos.png)
 
 Notice the pattern?  You can apply this pattern to any number system (base 3, base 4, base 16, etc.).  To get the digits place for any number system, you simply take the base you are in (binary = base 2, decimal = base 10) and raise that the *n*th power, where *n* is the digits place you are looking to find (start at 0).     
