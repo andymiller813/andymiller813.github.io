@@ -11,4 +11,4 @@ github_username:  andymiller813
 # Build settings
 markdown: kramdown
 
-permalink: pretty
+permalink: /:categories/:title

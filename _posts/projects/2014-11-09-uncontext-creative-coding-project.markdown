@@ -3,7 +3,7 @@ layout: post
 title:  "Uncontext Creative Coding Project"
 date:   November 11, 2014 12:24:00
 comments: true
-categories: creative coding
+categories: projects
 dateShort: "2014-11-09"
 ---
 

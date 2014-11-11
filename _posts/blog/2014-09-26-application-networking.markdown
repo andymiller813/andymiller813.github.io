@@ -3,7 +3,7 @@ layout: post
 title:  "Application Networking"
 date:   September 26, 2014 12:47:00
 comments: true
-categories: networking
+categories: blog
 dateShort: "2014-09-26"
 ---
 ##Client-Server Architecture

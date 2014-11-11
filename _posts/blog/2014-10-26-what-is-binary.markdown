@@ -3,7 +3,7 @@ layout: post
 title:  "What is Binary?"
 date:   2014-10-26 12:47:00
 comments: true
-categories: networking
+categories: blog
 dateShort: "2014-10-26"
 ---
 ##Introduction
