@@ -28,7 +28,7 @@ JSON stands for JavaScript Object Notation, and can essentially be thought of as
 }
 {% endhighlight %}
 
-This gets created immediately after you hit the submit button, and then gets attached to the HTTP request.  The HTTP request is then encoded into binary, and then sent off to its destination IP address to be dealt with. You can read more about binary [here](/_posts/blog/2014-10-26-what-is-binary.markdown) .  This request was probably POSTed to a URL that looks something like www.facebook.com/login, which is simply a folder on facebook’s servers called “login” that contains the code to deal with this exact request.  Specifically, it contains code with the correct logic that “parses” this JSON and checks the entry in a database to make sure it’s a match.  An alternative to JSON is XML which has a syntax much more similar to HTML.  
+This gets created immediately after you hit the submit button, and then gets attached to the HTTP request.  The HTTP request is then encoded into binary, and then sent off to its destination IP address to be dealt with. You can read more about binary [here](/blog/what-is-binary/) .  This request was probably POSTed to a URL that looks something like www.facebook.com/login, which is simply a folder on facebook’s servers called “login” that contains the code to deal with this exact request.  Specifically, it contains code with the correct logic that “parses” this JSON and checks the entry in a database to make sure it’s a match.  An alternative to JSON is XML which has a syntax much more similar to HTML.  
 
 ##JSON Parsing
 
