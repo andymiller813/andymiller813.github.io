@@ -71,7 +71,7 @@ The users key contains one JSON object as its value, and this JSON object contai
 So, what I've described so far in this article is an itsy bitsy teeny weeny little part of what is Facebook's internal [behemoth] web **API**, or Application Programming Interface.  We went over  Facebook's login page, but think about some of the other components to the website: There's a sign-up page to register a new account, there's the home feed, the profile feed, profile image, like buttons, comments, news articles, settings/preferences page, and the list goes on and on and on.  Facebook has all of this data stored in a data center somewhere like this one in Prineville, Oregon: 
 
 
-![Data Center in Prineville, OR](/assets/prineville.jpg)
+![Data Center in Prineville, OR](/img/prineville.jpg)
 
 
 All of the client applications (There are over 1.3 billion monthly active users as of this writing) are, for the most part, simply GETting and POSTing data to and from the servers.  Recall Client-Server architecture.  Once a user is authenticated on the login page, a GET HTTP request is spawned to GET a populated feed of his/her friends' statuses and images.  This feed component makes up an additional part of Facebook's API and is probably located at some location such as www.facebook.com/feed, which again is just a directory called "feed" within all of facebook's servers that contains logic to deal with these HTTP GET requests.  The logic, in this case, is quite complex.  Facebook needs to dig through, or query, its database for the most recent, and most relevant posts from your friends that it wants to show you, and then return them in order to be displayed.  Here's what some returned JSON might look like:

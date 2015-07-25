@@ -20,17 +20,17 @@ the beginner level.
 Counting in binary is just like counting in decimal, it just requires a little bit more abstracted 
 thinking.  Let's start counting in binary... remember we only have '0' and '1'
 
-![Table 1: Begin Counting in Binary](/assets/what_is_binary/table_1.png)
+![Table 1: Begin Counting in Binary](/img/what_is_binary/table_1.png)
 
 To figure out what comes next in binary, let's take a look at what we do when we count in decimal
 
-![](/assets/what_is_binary/table_2.png)
+![](/img/what_is_binary/table_2.png)
 
 In binary, you count by doing the exact same thing.  When you get to 1 in the right-most digit place, you 
 are now out of characters to use and you simply start back at the beginning (0) then add one to the next 
 place over.  In binary you end up with 10 as the next number: 
 
-![](/assets/what_is_binary/table_3.png)
+![](/img/what_is_binary/table_3.png)
 
 In decimal, what comes next? You continue to count the right-most digit upwards until you've once again run 
 out of characters: 11, 12, 13, 14, ... , 19, and then you follow the same procedure: reset the right-most 
@@ -38,29 +38,29 @@ digit to 0 and add 1 to the next digit over: 20.
 
 If you try to do this in binary, you'll notice you run into a problem:
 
-![](/assets/what_is_binary/table_4.png) 
+![](/img/what_is_binary/table_4.png) 
 
 When you add one to the second-to-right-most digit place over, you get two, which is not a valid number in binary. What do we do in decimal when we've run out of numbers in both the first and second (one's and ten's) digits place (the number 99)? 
 
-![](/assets/what_is_binary/table_5.png)
+![](/img/what_is_binary/table_5.png)
 
 In grade school, we all learned how to "carry the 1" when adding.  The same concept applies to binary.  In decimal, adding 1 to 99 , we reset the right-most (ones) digit to 0, and carry the one to the next digit place.  Since its again a 9, we do the same thing - reset to 0, and add 1 to the next one over, so we get 100.  Here it is in binary:
 
-![](/assets/what_is_binary/table_6.png)
+![](/img/what_is_binary/table_6.png)
 
 Get it?  Hopefully counting in binary makes decent sense by now.  Step through this next table carefully and try to remember all of these concepts that I've presented thus far.  The left column will count upwards in binary, while the right column will show the decimal equivalent.  
 
-![](/assets/what_is_binary/table_7.png)
+![](/img/what_is_binary/table_7.png)
 
 ##Additional Information: Converting Between Binary and Decimal
 
 Being able to represent any decimal number (and any letter, for that matter) with just two numbers (0 and 1) turns out to be pretty powerful.  We can convert any number to binary, and any letter, which can then be sent across a wire as a signal as something meaningful. We now know how to count in binary, but how about converting something to binary?  It's actually pretty simple once you understand one more thing about how number systems work.  In decimal we know that each digit place has the following names:
 
-![](/assets/what_is_binary/tens.png)
+![](/img/what_is_binary/tens.png)
 
 Whereas in binary we have:
 
-![](/assets/what_is_binary/twos.png)
+![](/img/what_is_binary/twos.png)
 
 Notice the pattern?  You can apply this pattern to any number system (base 3, base 4, base 16, etc.).  To get the digits place for any number system, you simply take the base you are in (binary = base 2, decimal = base 10) and raise that the *n*th power, where *n* is the digits place you are looking to find (start at 0).     
 

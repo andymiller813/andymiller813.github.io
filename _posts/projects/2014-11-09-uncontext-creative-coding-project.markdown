@@ -15,6 +15,6 @@ For Uncontext, I only had about 5 hours to get a project up and running, so I ne
 
 Here's a video of the app in action:
 
-<iframe width="360" height="640" src="/assets/uncontext/uncontext.mp4" frameborder="0" allowfullscreen></iframe>
+<iframe width="360" height="640" src="/img/uncontext/uncontext.mp4" frameborder="0" allowfullscreen></iframe>
 
 You can find the source for this project [here](https://github.com/andymiller813/Uncontext).  You'll see that in the [build.gradle](https://github.com/andymiller813/Uncontext/blob/master/app/build.gradle) file within the "app" directory, I've included the facebook spring dynamics library called "Rebound" as a dependency, as well as a Web Socket library to make connecting to the data stream easier.  The rest of the magic is in the [MainActivity.java](https://github.com/andymiller813/Uncontext/blob/master/app/src/main/java/andytheandroidguy/com/uncontext/MyActivity.java) file and should be pretty self explanatory.  
